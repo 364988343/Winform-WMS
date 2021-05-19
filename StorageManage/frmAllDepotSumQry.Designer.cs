@@ -54,9 +54,9 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BeginDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BeginDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BeginDate.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -122,9 +122,9 @@
             this.endDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.endDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.endDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.endDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.endDate.Size = new System.Drawing.Size(130, 21);
+            this.endDate.Size = new System.Drawing.Size(130, 20);
             this.endDate.TabIndex = 156;
             // 
             // BeginDate
@@ -135,16 +135,16 @@
             this.BeginDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.BeginDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.BeginDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.BeginDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BeginDate.Size = new System.Drawing.Size(130, 21);
+            this.BeginDate.Size = new System.Drawing.Size(130, 20);
             this.BeginDate.TabIndex = 155;
             // 
             // txtMaterialGuid
             // 
-            this.txtMaterialGuid.Location = new System.Drawing.Point(788, 28);
+            this.txtMaterialGuid.Location = new System.Drawing.Point(668, 28);
             this.txtMaterialGuid.Name = "txtMaterialGuid";
-            this.txtMaterialGuid.Size = new System.Drawing.Size(30, 21);
+            this.txtMaterialGuid.Size = new System.Drawing.Size(150, 21);
             this.txtMaterialGuid.TabIndex = 154;
             this.txtMaterialGuid.Visible = false;
             // 
@@ -174,7 +174,7 @@
             this.tsbExport.Image = ((System.Drawing.Image)(resources.GetObject("tsbExport.Image")));
             this.tsbExport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbExport.Name = "tsbExport";
-            this.tsbExport.Size = new System.Drawing.Size(79, 22);
+            this.tsbExport.Size = new System.Drawing.Size(88, 22);
             this.tsbExport.Text = "导出EXCEL";
             this.tsbExport.Click += new System.EventHandler(this.tsbExport_Click);
             // 
@@ -183,7 +183,7 @@
             this.exit.Image = ((System.Drawing.Image)(resources.GetObject("exit.Image")));
             this.exit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(49, 22);
+            this.exit.Size = new System.Drawing.Size(52, 22);
             this.exit.Text = "退出";
             this.exit.Click += new System.EventHandler(this.exit_Click_1);
             // 
@@ -431,9 +431,9 @@
             this.Load += new System.EventHandler(this.frmBill_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BeginDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BeginDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BeginDate.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

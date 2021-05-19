@@ -9,6 +9,7 @@ using StorageManageLibrary;
 using System.Web.UI.WebControls;
 using Daniel.Liu.DAO;
 using System.Xml;
+using System.IO;
 
 namespace StorageManage
 {
@@ -118,11 +119,15 @@ namespace StorageManage
         private void GetLoginUnitXML()
         {
             string fileName = Application.StartupPath + @"\HistoryLogin.xml";
+            if (!File.Exists(fileName))
+            {
+                CreateXmlFile(fileName);
+            }
             XmlDocument myXmlDocument = new XmlDocument();
             myXmlDocument.Load(fileName);
             XmlNode rootNode = myXmlDocument.DocumentElement;
             //用户上次登陆账号
-            string username = rootNode.ChildNodes[0].ChildNodes[0].Attributes["value"].Value;
+            string username = rootNode.ChildNodes[0].Attributes["Name"].Value;
 
 
             for (int i = 0; i < cboUserID.Items.Count; i++)
@@ -142,12 +147,15 @@ namespace StorageManage
         {
 
             string fileName = Application.StartupPath + @"\HistoryLogin.xml";
-
+            if (!File.Exists(fileName))
+            {
+                CreateXmlFile(fileName);
+            }
             XmlDocument myXmlDocument = new XmlDocument();
             myXmlDocument.Load(fileName);
             XmlNode rootNode = myXmlDocument.DocumentElement;
             //用户上次登陆用户名
-            rootNode.ChildNodes[0].ChildNodes[0].Attributes["value"].Value = cboUserID.Text;
+            rootNode.ChildNodes[0].Attributes["Name"].Value = cboUserID.Text;
         
             myXmlDocument.Save(Application.StartupPath + @"\HistoryLogin.xml");
         }
@@ -160,6 +168,53 @@ namespace StorageManage
             frmcp.ShowDialog();
         }
 
+        private void CreateXmlFile(string file)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            //创建类型声明节点  
+            XmlNode node = xmlDoc.CreateXmlDeclaration("1.0", "utf-8", "");
+            xmlDoc.AppendChild(node);
+            //创建根节点  
+            XmlNode root = xmlDoc.CreateElement("LoginUser");
+            xmlDoc.AppendChild(root);
+            //CreateNode(xmlDoc, root, "name", "xuwei");
+            //CreateNode(xmlDoc, root, "sex", "male");
+            CreateNode(xmlDoc, root, "UserName", "admin");
+            CreateAttribute(xmlDoc, root.ChildNodes[0], "Name", "admin");
+            try
+            {
+                xmlDoc.Save(file);
+            }
+            catch (Exception e)
+            {
+                //显示错误信息  
+                Console.WriteLine(e.Message);
+            }
+            //Console.ReadLine();  
+
+        }
+
+        /// <summary>    
+        /// 创建节点    
+        /// </summary>    
+        /// <param name="xmldoc"></param>  xml文档  
+        /// <param name="parentnode"></param>父节点    
+        /// <param name="name"></param>  节点名  
+        /// <param name="value"></param>  节点值  
+        ///   
+        private void CreateNode(XmlDocument xmlDoc, XmlNode parentNode, string name, string value)
+        {
+            XmlNode node = xmlDoc.CreateNode(XmlNodeType.Element, name, null);
+            node.InnerText = value;
+            parentNode.AppendChild(node);
+        }
+
+        private void CreateAttribute(XmlDocument OwnerXmlDoc,XmlNode OwnerNode,string AttrName,string AttrValue)
+        {
+            XmlAttribute attr = OwnerXmlDoc.CreateAttribute(AttrName);
+            attr.Value = AttrValue;
+            OwnerNode.Attributes.Append(attr);
+        }
 
     }
 }
